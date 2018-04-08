@@ -100,6 +100,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "valueForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Value";
             ((System.ComponentModel.ISupportInitialize)(this.numericValue)).EndInit();
             this.ResumeLayout(false);

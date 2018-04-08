@@ -86,6 +86,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "parametersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Choose parameters";
             this.ResumeLayout(false);
             this.PerformLayout();

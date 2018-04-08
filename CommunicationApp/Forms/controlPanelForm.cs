@@ -47,11 +47,12 @@ namespace CommunicationApp
                         iterator++;
                         richTextBoxActions.Text += iterator.ToString() + '.' + Action.ToString() + Environment.NewLine;
                     }
-                    this.richTextBoxAllEvents.Text = simulationLog.Response.EventsToString();
+                    this.richTextBoxAllEvents.Text = simulationLog.Response.EventsToString(this.checkBoxShowImportantOnly.Checked);
                     this.richTextBoxParameters.Text = simulationLog.Response.Parameters.ToString();
                     this.richTextBoxScores.Text = simulationLog.Response.Scores.ToString();
                     this.richTextBoxEquipments.Text = simulationLog.Response.EquipmentsToString();
-                    this.richTextBoxLastTurnEvents.Text = simulationLog.Response.LastTurnEventsToString();
+                    this.richTextBoxLastTurnEvents.Text = simulationLog.Response.LastTurnEventsToString(this.checkBoxShowImportantOnly.Checked);
+                    this.richTextBoxLogBook.Text = simulationLog.Response.LogBookToString();
                     this.labelTurn.Text = "Turn: " + simulationLog.Response.Turn;
                     this.labelLocation.Text = "Location: " + simulationLog.Response.Location;
                     this.labelTerminated.Text = "Is terminated: " + simulationLog.Response.IsTerminated.ToString();
@@ -70,11 +71,12 @@ namespace CommunicationApp
                         iterator++;
                         richTextBoxActions.Text += iterator.ToString() + '.' + Action.ToString() + Environment.NewLine;
                     }
-                    this.richTextBoxAllEvents.Text = chaarrLog.Response.EventsToString();
+                    this.richTextBoxAllEvents.Text = chaarrLog.Response.EventsToString(this.checkBoxShowImportantOnly.Checked);
                     this.richTextBoxParameters.Text = chaarrLog.Response.Parameters.ToString();
                     this.richTextBoxScores.Text = chaarrLog.Response.Scores.ToString();
                     this.richTextBoxEquipments.Text = chaarrLog.Response.EquipmentsToString();
-                    this.richTextBoxLastTurnEvents.Text = chaarrLog.Response.LastTurnEventsToString();
+                    this.richTextBoxLastTurnEvents.Text = chaarrLog.Response.LastTurnEventsToString(this.checkBoxShowImportantOnly.Checked);
+                    this.richTextBoxLogBook.Text = chaarrLog.Response.LogBookToString();
                     this.labelTurn.Text = "Turn: " + chaarrLog.Response.Turn;
                     this.labelLocation.Text = "Location: " + chaarrLog.Response.Location;
                     this.labelTerminated.Text = "Is terminated: " + chaarrLog.Response.IsTerminated.ToString();
@@ -252,7 +254,7 @@ namespace CommunicationApp
                 {
                     MessageBox.Show("First you must get status!");
                 }
-                
+
             }
             else
             {
@@ -260,15 +262,44 @@ namespace CommunicationApp
                 {
                     var wholeResponseForm = new showAllForm(chaarrLog.Response.ToString());
                     wholeResponseForm.ShowDialog();
-                   // MessageBox.Show(chaarrLog.Response.ToString());
+                    // MessageBox.Show(chaarrLog.Response.ToString());
                 }
                 else
                 {
                     MessageBox.Show("First you must get status!");
                 }
-                
+
             }
-            
+
+        }
+
+        private void checkBoxShowImportantOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (simulationSelected)
+            {
+                if (simulationLog.Response != null)
+                {
+                    this.richTextBoxAllEvents.Text = simulationLog.Response.EventsToString(this.checkBoxShowImportantOnly.Checked);
+                    this.richTextBoxLastTurnEvents.Text = simulationLog.Response.LastTurnEventsToString(this.checkBoxShowImportantOnly.Checked);
+                }
+                else
+                {
+                    MessageBox.Show("First you must get status!");
+                }
+            }
+            else
+            {
+                if (chaarrLog.Response != null)
+                {
+                    this.richTextBoxAllEvents.Text = chaarrLog.Response.EventsToString(this.checkBoxShowImportantOnly.Checked);
+                    this.richTextBoxLastTurnEvents.Text = chaarrLog.Response.LastTurnEventsToString(this.checkBoxShowImportantOnly.Checked);
+                }
+                else
+                {
+                    MessageBox.Show("First you must get status!");
+                }
+            }
+
         }
     }
 }

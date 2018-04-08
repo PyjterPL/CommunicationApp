@@ -74,6 +74,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "orderValueForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Order value";
             this.ResumeLayout(false);
 

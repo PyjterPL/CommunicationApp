@@ -54,6 +54,9 @@
             this.labelTerminated = new System.Windows.Forms.Label();
             this.buttonShowFullResponse = new System.Windows.Forms.Button();
             this.labelAllEvents = new System.Windows.Forms.Label();
+            this.labelLogBook = new System.Windows.Forms.Label();
+            this.richTextBoxLogBook = new System.Windows.Forms.RichTextBox();
+            this.checkBoxShowImportantOnly = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnScan
@@ -152,7 +155,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(636, 246);
+            this.btnReset.Location = new System.Drawing.Point(636, 633);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 9;
@@ -189,7 +192,7 @@
             // 
             // richTextBoxParameters
             // 
-            this.richTextBoxParameters.Location = new System.Drawing.Point(13, 327);
+            this.richTextBoxParameters.Location = new System.Drawing.Point(15, 301);
             this.richTextBoxParameters.Name = "richTextBoxParameters";
             this.richTextBoxParameters.ReadOnly = true;
             this.richTextBoxParameters.Size = new System.Drawing.Size(194, 186);
@@ -199,7 +202,7 @@
             // labelParameters
             // 
             this.labelParameters.AutoSize = true;
-            this.labelParameters.Location = new System.Drawing.Point(10, 311);
+            this.labelParameters.Location = new System.Drawing.Point(12, 285);
             this.labelParameters.Name = "labelParameters";
             this.labelParameters.Size = new System.Drawing.Size(63, 13);
             this.labelParameters.TabIndex = 14;
@@ -207,7 +210,7 @@
             // 
             // richTextBoxScores
             // 
-            this.richTextBoxScores.Location = new System.Drawing.Point(214, 327);
+            this.richTextBoxScores.Location = new System.Drawing.Point(216, 301);
             this.richTextBoxScores.Name = "richTextBoxScores";
             this.richTextBoxScores.ReadOnly = true;
             this.richTextBoxScores.Size = new System.Drawing.Size(194, 186);
@@ -217,7 +220,7 @@
             // labelScores
             // 
             this.labelScores.AutoSize = true;
-            this.labelScores.Location = new System.Drawing.Point(211, 311);
+            this.labelScores.Location = new System.Drawing.Point(213, 285);
             this.labelScores.Name = "labelScores";
             this.labelScores.Size = new System.Drawing.Size(43, 13);
             this.labelScores.TabIndex = 16;
@@ -225,7 +228,7 @@
             // 
             // richTextBoxEquipments
             // 
-            this.richTextBoxEquipments.Location = new System.Drawing.Point(414, 327);
+            this.richTextBoxEquipments.Location = new System.Drawing.Point(416, 301);
             this.richTextBoxEquipments.Name = "richTextBoxEquipments";
             this.richTextBoxEquipments.ReadOnly = true;
             this.richTextBoxEquipments.Size = new System.Drawing.Size(194, 186);
@@ -244,7 +247,7 @@
             // labelEquipments
             // 
             this.labelEquipments.AutoSize = true;
-            this.labelEquipments.Location = new System.Drawing.Point(411, 311);
+            this.labelEquipments.Location = new System.Drawing.Point(413, 285);
             this.labelEquipments.Name = "labelEquipments";
             this.labelEquipments.Size = new System.Drawing.Size(65, 13);
             this.labelEquipments.TabIndex = 19;
@@ -288,7 +291,7 @@
             // 
             // buttonShowFullResponse
             // 
-            this.buttonShowFullResponse.Location = new System.Drawing.Point(636, 275);
+            this.buttonShowFullResponse.Location = new System.Drawing.Point(636, 245);
             this.buttonShowFullResponse.Name = "buttonShowFullResponse";
             this.buttonShowFullResponse.Size = new System.Drawing.Size(76, 23);
             this.buttonShowFullResponse.TabIndex = 24;
@@ -305,11 +308,43 @@
             this.labelAllEvents.TabIndex = 25;
             this.labelAllEvents.Text = "All events:";
             // 
+            // labelLogBook
+            // 
+            this.labelLogBook.AutoSize = true;
+            this.labelLogBook.Location = new System.Drawing.Point(12, 495);
+            this.labelLogBook.Name = "labelLogBook";
+            this.labelLogBook.Size = new System.Drawing.Size(55, 13);
+            this.labelLogBook.TabIndex = 26;
+            this.labelLogBook.Text = "Log book:";
+            // 
+            // richTextBoxLogBook
+            // 
+            this.richTextBoxLogBook.Location = new System.Drawing.Point(14, 511);
+            this.richTextBoxLogBook.Name = "richTextBoxLogBook";
+            this.richTextBoxLogBook.ReadOnly = true;
+            this.richTextBoxLogBook.Size = new System.Drawing.Size(596, 145);
+            this.richTextBoxLogBook.TabIndex = 27;
+            this.richTextBoxLogBook.Text = "";
+            // 
+            // checkBoxShowImportantOnly
+            // 
+            this.checkBoxShowImportantOnly.AutoSize = true;
+            this.checkBoxShowImportantOnly.Location = new System.Drawing.Point(414, 12);
+            this.checkBoxShowImportantOnly.Name = "checkBoxShowImportantOnly";
+            this.checkBoxShowImportantOnly.Size = new System.Drawing.Size(156, 17);
+            this.checkBoxShowImportantOnly.TabIndex = 28;
+            this.checkBoxShowImportantOnly.Text = "Show only important events";
+            this.checkBoxShowImportantOnly.UseVisualStyleBackColor = true;
+            this.checkBoxShowImportantOnly.CheckedChanged += new System.EventHandler(this.checkBoxShowImportantOnly_CheckedChanged);
+            // 
             // controlPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 526);
+            this.ClientSize = new System.Drawing.Size(723, 678);
+            this.Controls.Add(this.checkBoxShowImportantOnly);
+            this.Controls.Add(this.richTextBoxLogBook);
+            this.Controls.Add(this.labelLogBook);
             this.Controls.Add(this.labelAllEvents);
             this.Controls.Add(this.buttonShowFullResponse);
             this.Controls.Add(this.labelTerminated);
@@ -340,6 +375,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "controlPanelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control Panel";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.controlPanelForm_FormClosing);
             this.ResumeLayout(false);
@@ -375,6 +411,9 @@
         private System.Windows.Forms.Label labelTerminated;
         private System.Windows.Forms.Button buttonShowFullResponse;
         private System.Windows.Forms.Label labelAllEvents;
+        private System.Windows.Forms.Label labelLogBook;
+        private System.Windows.Forms.RichTextBox richTextBoxLogBook;
+        private System.Windows.Forms.CheckBox checkBoxShowImportantOnly;
     }
 }
 

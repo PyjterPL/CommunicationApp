@@ -4,3 +4,53 @@ UpkeepTime
 KnowledgeChanged
 ChaarrHatredChanged
 SurvivorDeathsChanged
+ExpeditionEnergyChanged
+CrewDeathsChanged
+
+1.Scan - Asteroids
+2.Harvest - Asteroids
+3.Harvest - Asteroids
+4.Produce - Energy
+5.Produce - Supplies - 500
+6.Harvest - Asteroids
+7.Produce - Energy
+8.Harvest - Asteroids
+9.Harvest - Asteroids
+10.Harvest - Asteroids
+11.Produce - Supplies - 500
+12.Produce - Energy
+13.Produce - Supplies - 500
+14.Harvest - Asteroids
+15.Produce - Energy
+16.Harvest - Asteroids
+17.Harvest - Asteroids
+18.Harvest - Asteroids
+19.Harvest - Asteroids
+20.Produce - Energy
+21.Scan - Chaarr
+22.Scan - Chaarr
+23.Produce - Shuttlewrench
+24.Produce - Energy
+25.Harvest - Asteroids
+26.Harvest - Asteroids
+27.Harvest - Asteroids
+28.Produce - Energy
+29.Produce - Energy
+30.Scan - Asteroids
+31.Repair - Asteroids
+32.Scan - Shuttle
+33.Produce - Energy
+34.Produce - Energy
+35.MoveTo - Chaarr
+36.Scan - Chaarr
+37.Produce - Decoy
+38.Scan - Esthajnalcsillag
+39.Produce - Tools
+40.MoveTo - Esthajnalcsillag
+41.Scan - Esthajnalcsillag
+42.Harvest - Esthajnalcsillag
+43.Produce - Energy
+44.Repair - Communications
+45.Harvest - Esthajnalcsillag
+46.Produce - Energy
+47.Repair - Partialshuttle

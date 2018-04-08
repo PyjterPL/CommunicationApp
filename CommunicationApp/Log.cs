@@ -23,7 +23,7 @@ namespace CommunicationApp
                 iterator++;
                 logInfo += iterator.ToString() + ". " + Action.ToString() + Environment.NewLine;
             }
-            logInfo += Response.ToString();
+            logInfo += Response.ToString(true);//important informations only
             return logInfo;
         }
     }

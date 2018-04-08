@@ -27,6 +27,8 @@ namespace CommunicationApp
         public Parameters Parameters { get; }
         [JsonProperty("isTerminated")]
         public bool IsTerminated { get; }
+
+        private List<string> notImportantEvents = new List<string>();
         public Response(string turn, string location, List<string> events, List<string> lastTurnEvents, List<string> equipments, List<string> logBook, Score scores, Parameters parameters, bool isTerminated)
         {
             this.Turn = turn;
@@ -38,16 +40,26 @@ namespace CommunicationApp
             this.Scores = scores;
             this.Parameters = parameters;
             this.IsTerminated = isTerminated;
+
+            notImportantEvents.Add("PołudnicaEnergyChanged");
+            notImportantEvents.Add("PołudnicaMatterChanged");
+            notImportantEvents.Add("UpkeepTime");
+            notImportantEvents.Add("KnowledgeChanged");
+            notImportantEvents.Add("ChaarrHatredChanged");
+            notImportantEvents.Add("SurvivorDeathsChanged");
+            notImportantEvents.Add("ExpeditionEnergyChanged");
+            notImportantEvents.Add("ExpeditionMatterChanged");
+            notImportantEvents.Add("CrewDeathsChanged");
         }
-        public override string ToString()
+        public string ToString(bool importantOnly=false)
         {
             string response = string.Empty;
             response += "Turn: " + Turn + Environment.NewLine + Environment.NewLine +
                         "Location: " + Location + Environment.NewLine + Environment.NewLine +
                         "Events: " + Environment.NewLine;
-            response += EventsToString() + Environment.NewLine;
+            response += EventsToString(importantOnly) + Environment.NewLine;
             response += "LastTurnEvents: " + Environment.NewLine;
-            response += LastTurnEventsToString() + Environment.NewLine;
+            response += LastTurnEventsToString(importantOnly) + Environment.NewLine;
             response += "Equipments: " + Environment.NewLine;
             response += EquipmentsToString() + Environment.NewLine;
             response += "LogBook: " + Environment.NewLine;
@@ -58,21 +70,51 @@ namespace CommunicationApp
 
             return response;
         }
-        public string EventsToString()
+        public string EventsToString(bool importantOnly)
         {
             string events = string.Empty;
             foreach (string _event in Events)
             {
-                events += _event + Environment.NewLine;
+                bool isImportant = true;
+                if (importantOnly)
+                {
+                    foreach (string notImportantEvent in notImportantEvents)
+                    {
+                        if (_event == notImportantEvent)
+                        {
+                            isImportant = false;
+                            break;
+                        }
+                    }
+                }
+                if (isImportant)
+                {
+                    events += _event + Environment.NewLine;
+                }
             }
             return events;
         }
-        public string LastTurnEventsToString()
+        public string LastTurnEventsToString(bool importantOnly)
         {
             string lastTurnEvents = string.Empty;
             foreach (string lastTurnEvent in LastTurnEvents)
             {
-                lastTurnEvents += lastTurnEvent + Environment.NewLine;
+                bool isImportant = true;
+                if (importantOnly)
+                {
+                    foreach (string notImportantEvent in notImportantEvents)
+                    {
+                        if (lastTurnEvent == notImportantEvent)
+                        {
+                            isImportant = false;
+                            break;
+                        }
+                    }
+                }
+                if (isImportant)
+                {
+                    lastTurnEvents += lastTurnEvent + Environment.NewLine;
+                }
             }
             return lastTurnEvents;
         }
@@ -88,7 +130,7 @@ namespace CommunicationApp
         public string EquipmentsToString()
         {
             string equipments = string.Empty;
-            foreach(string equipment in Equipments)
+            foreach (string equipment in Equipments)
             {
                 equipments += equipment + Environment.NewLine;
             }

@@ -62,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(781, 580);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "showAllForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Whole response";
             this.SizeChanged += new System.EventHandler(this.showAllForm_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -11,7 +11,7 @@ namespace CommunicationApp
     {
         Help,
         FinalWar,
-        EvacSceince,
+        EvacScience,
         EvacSurvivors,
         Retreat
     }
