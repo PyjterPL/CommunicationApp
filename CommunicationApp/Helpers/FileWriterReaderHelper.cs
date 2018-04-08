@@ -9,11 +9,26 @@ namespace CommunicationApp.Helpers
 {
     internal static class FileWriterReaderHelper
     {
-        public static void WriteLog(string log)
+        public static void WriteLog(string log,bool simulation)
         {
-            var fileStream = new FileStream("Log.txt",
-                FileMode.OpenOrCreate, FileAccess.ReadWrite);
-
+            short iterator = 1;
+            string name;
+            if (simulation)
+            {
+                name = "SimulationLog"+iterator.ToString();
+            }
+            else
+            {
+                name = "ChaarrLog"+iterator.ToString();
+            }
+            while (File.Exists(name+".txt"))
+            {
+                name=name.Trim('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+                iterator++;
+                name += iterator.ToString();
+            }
+            var fileStream = new FileStream(name+".txt",
+                FileMode.CreateNew, FileAccess.ReadWrite);
             try
             {
                 var streamWriter = new StreamWriter(fileStream);

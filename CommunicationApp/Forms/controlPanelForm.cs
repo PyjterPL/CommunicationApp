@@ -59,7 +59,7 @@ namespace CommunicationApp
 
                     if (simulationLog.Response.IsTerminated)
                     {
-                        FileWriterReaderHelper.WriteLog(simulationLog.ToString());
+                        FileWriterReaderHelper.WriteLog(simulationLog.ToString(),simulationSelected);
                     }
                 }
                 else
@@ -83,7 +83,7 @@ namespace CommunicationApp
 
                     if (chaarrLog.Response.IsTerminated)
                     {
-                        FileWriterReaderHelper.WriteLog(chaarrLog.ToString());
+                        FileWriterReaderHelper.WriteLog(chaarrLog.ToString(), simulationSelected);
                     }
                 }
             }
