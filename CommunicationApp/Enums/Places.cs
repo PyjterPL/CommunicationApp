@@ -8,7 +8,7 @@ namespace CommunicationApp
 {
     internal enum Places
     {
-        //Scan,MoveTo,Harvest,
+        //Used in Scan,MoveTo and Harvest
          Południca,
          Chaarr,
          Esthajnalcsillag,
