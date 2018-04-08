@@ -56,6 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="Forms\showAllForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\showAllForm.Designer.cs">
+      <DependentUpon>showAllForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\ConnectionHelper.cs" />
     <Compile Include="Forms\controlPanelForm.cs">
       <SubType>Form</SubType>
@@ -83,7 +90,9 @@
     </Compile>
     <Compile Include="Enums\Places.cs" />
     <Compile Include="Enums\OrderParameters.cs" />
+    <Compile Include="Helpers\FileWriterReaderHelper.cs" />
     <Compile Include="JSONResponseContainers\Parameters.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Payload.cs" />
     <Compile Include="Enums\ProduceParameters.cs" />
     <Compile Include="Program.cs" />
@@ -108,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\parametersForm.resx">
       <DependentUpon>parametersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\showAllForm.resx">
+      <DependentUpon>showAllForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

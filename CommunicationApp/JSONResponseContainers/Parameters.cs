@@ -10,39 +10,52 @@ namespace CommunicationApp
     internal class Parameters
     {
         [JsonProperty("chaarrHatred")]
-        public string chaarrHatred { get; }
+        public string ChaarrHatred { get; }
         [JsonProperty("knowledge")]
-        public string knowledge { get; }
+        public string Knowledge { get; }
         [JsonProperty("crewDeaths")]
-        public string crewDeaths { get; }
+        public string CrewDeaths { get; }
         [JsonProperty("survivorDeaths")]
-        public string survivorDeaths { get; }
+        public string SurvivorDeaths { get; }
         [JsonProperty("savedScience")]
-        public string savedScience { get; }
+        public string SavedScience { get; }
         [JsonProperty("savedSurvivors")]
-        public string savedSurvivors { get; }
+        public string SavedSurvivors { get; }
         [JsonProperty("południcaMatter")]
-        public string poludnicaMatter { get; }
+        public string PoludnicaMatter { get; }
         [JsonProperty("południcaEnergy")]
-        public string poludnicaEnergy { get; }
+        public string PoludnicaEnergy { get; }
         [JsonProperty("expeditionMatter")]
-        public string expeditionMatter { get; }
+        public string ExpeditionMatter { get; }
         [JsonProperty("expeditionEnergy")]
-        public string expeditionEnergy { get; }
+        public string ExpeditionEnergy { get; }
 
-        public Parameters(string chaarrHatred,string knowledge,string crewDeaths,string survivorDeaths,string savedSurvivors,
-            string poludnicaEnergy,string poludnicaMatter, string expeditionMatter,string expeditionEnergy)
+        public Parameters(string chaarrHatred, string knowledge, string crewDeaths, string survivorDeaths, string savedScience,
+            string savedSurvivors, string poludnicaEnergy, string poludnicaMatter, string expeditionMatter, string expeditionEnergy)
         {
-            this.chaarrHatred = chaarrHatred;
-            this.knowledge = knowledge;
-            this.crewDeaths = crewDeaths;
-            this.survivorDeaths = survivorDeaths;
-            this.savedScience = savedScience;
-            this.savedSurvivors = savedSurvivors;
-            this.poludnicaEnergy = poludnicaEnergy;
-            this.poludnicaMatter = poludnicaMatter;
-            this.expeditionEnergy = expeditionEnergy;
-            this.expeditionMatter = expeditionMatter;
+            this.ChaarrHatred = chaarrHatred;
+            this.Knowledge = knowledge;
+            this.CrewDeaths = crewDeaths;
+            this.SurvivorDeaths = survivorDeaths;
+            this.SavedScience = savedScience;
+            this.SavedSurvivors = savedSurvivors;
+            this.PoludnicaEnergy = poludnicaEnergy;
+            this.PoludnicaMatter = poludnicaMatter;
+            this.ExpeditionEnergy = expeditionEnergy;
+            this.ExpeditionMatter = expeditionMatter;
+        }
+        public override string ToString()
+        {
+            return "ChaarrHatred: " + ChaarrHatred + Environment.NewLine +
+                   "Knowledge: " + Knowledge + Environment.NewLine +
+                   "CrewDeaths: " + CrewDeaths + Environment.NewLine +
+                   "SurvivorDeaths: " + SurvivorDeaths + Environment.NewLine +
+                   "SavedScience: " + SavedScience + Environment.NewLine +
+                   "SavedSurvivors: " + SavedSurvivors + Environment.NewLine +
+                   "PoludnicaMatter: " + PoludnicaMatter + Environment.NewLine +
+                   "PoludnicaEnergy: " + PoludnicaEnergy + Environment.NewLine +
+                   "ExpeditionMatter: " + ExpeditionMatter + Environment.NewLine +
+                   "ExpeditionEnergy: " + ExpeditionEnergy + Environment.NewLine;
         }
 
     }

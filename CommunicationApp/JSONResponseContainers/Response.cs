@@ -10,34 +10,89 @@ namespace CommunicationApp
     internal class Response
     {
         [JsonProperty("turn")]
-        public string turn { get; }
+        public string Turn { get; }
         [JsonProperty("location")]
-        public string location { get; }
+        public string Location { get; }
         [JsonProperty("events")]
-        public List<string> events { get; }
+        public List<string> Events { get; }
         [JsonProperty("lastTurnEvents")]
-        public List<string> lastTurnEvents { get; }
+        public List<string> LastTurnEvents { get; }
         [JsonProperty("equipments")]
-        public List<string> equipments { get; }
+        public List<string> Equipments { get; }
         [JsonProperty("logBook")]
-        public List<string> logBook { get; }
+        public List<string> LogBook { get; }
         [JsonProperty("scores")]
-        public Score scores { get; }
+        public Score Scores { get; }
         [JsonProperty("parameters")]
-        public Parameters parameters { get; }
+        public Parameters Parameters { get; }
         [JsonProperty("isTerminated")]
-        public bool isTerminated { get; }
+        public bool IsTerminated { get; }
         public Response(string turn, string location, List<string> events, List<string> lastTurnEvents, List<string> equipments, List<string> logBook, Score scores, Parameters parameters, bool isTerminated)
         {
-            this.turn = turn;
-            this.location = location;
-            this.events = events;
-            this.lastTurnEvents = lastTurnEvents;
-            this.equipments = equipments;
-            this.logBook = logBook;
-            this.scores = scores;
-            this.parameters = parameters;
-            this.isTerminated = isTerminated;
+            this.Turn = turn;
+            this.Location = location;
+            this.Events = events;
+            this.LastTurnEvents = lastTurnEvents;
+            this.Equipments = equipments;
+            this.LogBook = logBook;
+            this.Scores = scores;
+            this.Parameters = parameters;
+            this.IsTerminated = isTerminated;
+        }
+        public override string ToString()
+        {
+            string response = string.Empty;
+            response += "Turn: " + Turn + Environment.NewLine + Environment.NewLine +
+                        "Location: " + Location + Environment.NewLine + Environment.NewLine +
+                        "Events: " + Environment.NewLine;
+            response += EventsToString() + Environment.NewLine;
+            response += "LastTurnEvents: " + Environment.NewLine;
+            response += LastTurnEventsToString() + Environment.NewLine;
+            response += "Equipments: " + Environment.NewLine;
+            response += EquipmentsToString() + Environment.NewLine;
+            response += "LogBook: " + Environment.NewLine;
+            response += LogBookToString() + Environment.NewLine;
+            response += "Scores:" + Environment.NewLine + Scores.ToString() + Environment.NewLine;
+            response += "Parameters:" + Environment.NewLine + Parameters.ToString() + Environment.NewLine;
+            response += "Is terminated?: " + IsTerminated.ToString();
+
+            return response;
+        }
+        public string EventsToString()
+        {
+            string events = string.Empty;
+            foreach (string _event in Events)
+            {
+                events += _event + Environment.NewLine;
+            }
+            return events;
+        }
+        public string LastTurnEventsToString()
+        {
+            string lastTurnEvents = string.Empty;
+            foreach (string lastTurnEvent in LastTurnEvents)
+            {
+                lastTurnEvents += lastTurnEvent + Environment.NewLine;
+            }
+            return lastTurnEvents;
+        }
+        public string LogBookToString()
+        {
+            string logBook = string.Empty;
+            foreach (string log in LogBook)
+            {
+                logBook += log + Environment.NewLine + Environment.NewLine;
+            }
+            return logBook;
+        }
+        public string EquipmentsToString()
+        {
+            string equipments = string.Empty;
+            foreach(string equipment in Equipments)
+            {
+                equipments += equipment + Environment.NewLine;
+            }
+            return equipments;
         }
     }
 }

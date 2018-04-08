@@ -14,15 +14,15 @@ namespace CommunicationApp
 {
     public partial class parametersForm : Form
     {
-        private string action { get; }
+        public Action Action { get; set; }
         private bool simulationSelected { get; }
-        public parametersForm(string action, bool simulationSelected)
+        public parametersForm(Action Action, bool simulationSelected)
         {
             InitializeComponent();
-            this.action = action;
+            this.Action = Action;
             this.simulationSelected = simulationSelected;
-            this.lblParameter.Text = action;
-            switch (action)
+            this.lblParameter.Text = Action.Command;
+            switch (Action.Command)
             {
                 case "Order":
                     foreach (OrderParameters orderParameters in Enum.GetValues(typeof(OrderParameters)))
@@ -59,14 +59,14 @@ namespace CommunicationApp
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
-            switch (this.action)
+            switch (Action.Command)
             {
                 case "Order":
                     var orderForm = new orderValueForm();
                     orderForm.ShowDialog();
                     if (orderForm.DialogResult == DialogResult.OK)
                     {
-                        var payload = new Payload(this.action, ConnectionHelper.Login, ConnectionHelper.Token,
+                        var payload = new Payload(Action.Command, ConnectionHelper.Login, ConnectionHelper.Token,
                             this.comboBoxParameters.SelectedItem.ToString(), orderForm.Value).ToJson();
                         var client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
                         var request = ConnectionHelper.CreateRequest(payload);
@@ -74,6 +74,8 @@ namespace CommunicationApp
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
                             this.DialogResult = DialogResult.OK;
+                            this.Action.Parameter = this.comboBoxParameters.SelectedItem.ToString();
+                            this.Action.Value = orderForm.Value;
                             this.Close();
                         }
                         else
@@ -90,7 +92,7 @@ namespace CommunicationApp
                         valueForm.ShowDialog();
                         if (valueForm.DialogResult == DialogResult.OK)
                         {
-                            var payload = new Payload(this.action, ConnectionHelper.Login, ConnectionHelper.Token, 
+                            var payload = new Payload(Action.Command, ConnectionHelper.Login, ConnectionHelper.Token, 
                                 this.comboBoxParameters.SelectedItem.ToString(),valueForm.Value.ToString()).ToJson();
                             var client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
                             var request = ConnectionHelper.CreateRequest(payload);
@@ -98,6 +100,8 @@ namespace CommunicationApp
                             if (response.StatusCode == HttpStatusCode.OK)
                             {
                                 this.DialogResult = DialogResult.OK;
+                                this.Action.Parameter = this.comboBoxParameters.SelectedItem.ToString();
+                                this.Action.Value = valueForm.Value.ToString();
                                 this.Close();
                             }
                             else
@@ -109,13 +113,14 @@ namespace CommunicationApp
                     }
                     else
                     {
-                        var payload = new Payload(this.action, ConnectionHelper.Login, ConnectionHelper.Token, this.comboBoxParameters.SelectedItem.ToString()).ToJson();
+                        var payload = new Payload(Action.Command, ConnectionHelper.Login, ConnectionHelper.Token, this.comboBoxParameters.SelectedItem.ToString()).ToJson();
                         var client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
                         var request = ConnectionHelper.CreateRequest(payload);
                         IRestResponse response = client.Execute(request);
                         if (response.StatusCode == HttpStatusCode.OK)
                         {
                             this.DialogResult = DialogResult.OK;
+                            this.Action.Parameter = this.comboBoxParameters.SelectedItem.ToString();
                             this.Close();
                         }
                         else

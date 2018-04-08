@@ -1,0 +1,6 @@
+Po³udnicaEnergyChanged
+Po³udnicaMatterChanged
+UpkeepTime
+KnowledgeChanged
+ChaarrHatredChanged
+SurvivorDeathsChanged

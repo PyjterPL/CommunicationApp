@@ -11,26 +11,35 @@ namespace CommunicationApp
     {
 
         [JsonProperty("survivorsScore")]
-        public string survivorsScore { get; }
+        public string SurvivorsScore { get; }
         [JsonProperty("scienceScore")]
-        public string scienceScore { get; }
+        public string ScienceScore { get; }
         [JsonProperty("crewMalus")]
-        public string crewMalus { get; }
+        public string CrewMalus { get; }
         [JsonProperty("knowledgeScore")]
-        public string knowledgeScore { get; }
+        public string KnowledgeScore { get; }
         [JsonProperty("eventScore")]
-        public string eventScore { get; }
+        public string EventScore { get; }
         [JsonProperty("totalScore")]
-        public string totalScore { get; }
+        public string TotalScore { get; }
 
         public Score(string survivorsScore, string scienceScore, string crewMalus, string knowledgeScore, string eventScore, string totalScore)
         {
-            this.survivorsScore = survivorsScore;
-            this.scienceScore = scienceScore;
-            this.crewMalus = crewMalus;
-            this.knowledgeScore = knowledgeScore;
-            this.eventScore = eventScore;
-            this.totalScore = totalScore;
+            this.SurvivorsScore = survivorsScore;
+            this.ScienceScore = scienceScore;
+            this.CrewMalus = crewMalus;
+            this.KnowledgeScore = knowledgeScore;
+            this.EventScore = eventScore;
+            this.TotalScore = totalScore;
+        }
+        public override string ToString()
+        {
+            return "SurvivorsScore: " + SurvivorsScore + Environment.NewLine +
+                   "ScienceScore: " + ScienceScore + Environment.NewLine +
+                   "CrewMalus: " + CrewMalus + Environment.NewLine +
+                   "KnowledgeScore: " + KnowledgeScore + Environment.NewLine +
+                   "EventScore: " + EventScore + Environment.NewLine +
+                   "TotalScore: " + TotalScore + Environment.NewLine;
         }
     }
 }
