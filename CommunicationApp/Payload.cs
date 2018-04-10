@@ -18,8 +18,6 @@ namespace CommunicationApp
             Parameter = parameter;
             Value = value;
         }
-
-
         public string ToJson()
         {
             return JsonConvert.SerializeObject(this);

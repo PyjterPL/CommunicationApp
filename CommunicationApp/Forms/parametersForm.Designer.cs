@@ -62,7 +62,6 @@
             this.comboBoxParameters.Name = "comboBoxParameters";
             this.comboBoxParameters.Size = new System.Drawing.Size(121, 21);
             this.comboBoxParameters.TabIndex = 2;
-            this.comboBoxParameters.SelectedIndexChanged += new System.EventHandler(this.comboBoxParameters_SelectedIndexChanged);
             // 
             // lblParameter
             // 

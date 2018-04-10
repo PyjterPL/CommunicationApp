@@ -57,7 +57,7 @@
             this.labelLogBook = new System.Windows.Forms.Label();
             this.richTextBoxLogBook = new System.Windows.Forms.RichTextBox();
             this.checkBoxShowImportantOnly = new System.Windows.Forms.CheckBox();
-            this.buttonStartProcedure = new System.Windows.Forms.Button();
+            this.btnSkipStart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnScan
@@ -68,7 +68,7 @@
             this.btnScan.TabIndex = 0;
             this.btnScan.Text = "Scan";
             this.btnScan.UseVisualStyleBackColor = true;
-            this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
+            this.btnScan.Click += new System.EventHandler(this.buttonsActionPerformed);
             // 
             // btnMoveTo
             // 
@@ -78,7 +78,7 @@
             this.btnMoveTo.TabIndex = 1;
             this.btnMoveTo.Text = "Move To";
             this.btnMoveTo.UseVisualStyleBackColor = true;
-            this.btnMoveTo.Click += new System.EventHandler(this.btnMoveTo_Click);
+            this.btnMoveTo.Click += new System.EventHandler(this.buttonsActionPerformed);
             // 
             // btnProduce
             // 
@@ -88,7 +88,7 @@
             this.btnProduce.TabIndex = 2;
             this.btnProduce.Text = "Produce";
             this.btnProduce.UseVisualStyleBackColor = true;
-            this.btnProduce.Click += new System.EventHandler(this.btnProduce_Click);
+            this.btnProduce.Click += new System.EventHandler(this.buttonsActionPerformed);
             // 
             // btnHarvest
             // 
@@ -98,7 +98,7 @@
             this.btnHarvest.TabIndex = 3;
             this.btnHarvest.Text = "Harvest";
             this.btnHarvest.UseVisualStyleBackColor = true;
-            this.btnHarvest.Click += new System.EventHandler(this.btnHarvest_Click);
+            this.btnHarvest.Click += new System.EventHandler(this.buttonsActionPerformed);
             // 
             // btnRepair
             // 
@@ -108,7 +108,7 @@
             this.btnRepair.TabIndex = 4;
             this.btnRepair.Text = "Repair";
             this.btnRepair.UseVisualStyleBackColor = true;
-            this.btnRepair.Click += new System.EventHandler(this.btnRepair_Click);
+            this.btnRepair.Click += new System.EventHandler(this.buttonsActionPerformed);
             // 
             // btnOrder
             // 
@@ -118,7 +118,7 @@
             this.btnOrder.TabIndex = 5;
             this.btnOrder.Text = "Order";
             this.btnOrder.UseVisualStyleBackColor = true;
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            this.btnOrder.Click += new System.EventHandler(this.buttonsActionPerformed);
             // 
             // radioButtonSimulation
             // 
@@ -162,7 +162,6 @@
             this.btnReset.TabIndex = 9;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // richTextBoxAllEvents
             // 
@@ -298,7 +297,7 @@
             this.buttonShowFullResponse.TabIndex = 24;
             this.buttonShowFullResponse.Text = "Show all";
             this.buttonShowFullResponse.UseVisualStyleBackColor = true;
-            this.buttonShowFullResponse.Click += new System.EventHandler(this.buttonShowFullResponse_Click);
+            this.buttonShowFullResponse.Click += new System.EventHandler(this.buttonsActionPerformed);
             // 
             // labelAllEvents
             // 
@@ -338,22 +337,22 @@
             this.checkBoxShowImportantOnly.UseVisualStyleBackColor = true;
             this.checkBoxShowImportantOnly.CheckedChanged += new System.EventHandler(this.checkBoxShowImportantOnly_CheckedChanged);
             // 
-            // buttonStartProcedure
+            // btnSkipStart
             // 
-            this.buttonStartProcedure.Location = new System.Drawing.Point(636, 275);
-            this.buttonStartProcedure.Name = "buttonStartProcedure";
-            this.buttonStartProcedure.Size = new System.Drawing.Size(75, 23);
-            this.buttonStartProcedure.TabIndex = 29;
-            this.buttonStartProcedure.Text = "Skip start";
-            this.buttonStartProcedure.UseVisualStyleBackColor = true;
-            this.buttonStartProcedure.Click += new System.EventHandler(this.buttonStartProcedure_Click);
+            this.btnSkipStart.Location = new System.Drawing.Point(636, 275);
+            this.btnSkipStart.Name = "btnSkipStart";
+            this.btnSkipStart.Size = new System.Drawing.Size(75, 23);
+            this.btnSkipStart.TabIndex = 29;
+            this.btnSkipStart.Text = "Skip start";
+            this.btnSkipStart.UseVisualStyleBackColor = true;
+            this.btnSkipStart.Click += new System.EventHandler(this.buttonSkipStart_Click);
             // 
             // controlPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 678);
-            this.Controls.Add(this.buttonStartProcedure);
+            this.Controls.Add(this.btnSkipStart);
             this.Controls.Add(this.checkBoxShowImportantOnly);
             this.Controls.Add(this.richTextBoxLogBook);
             this.Controls.Add(this.labelLogBook);
@@ -426,7 +425,7 @@
         private System.Windows.Forms.Label labelLogBook;
         private System.Windows.Forms.RichTextBox richTextBoxLogBook;
         private System.Windows.Forms.CheckBox checkBoxShowImportantOnly;
-        private System.Windows.Forms.Button buttonStartProcedure;
+        private System.Windows.Forms.Button btnSkipStart;
     }
 }
 

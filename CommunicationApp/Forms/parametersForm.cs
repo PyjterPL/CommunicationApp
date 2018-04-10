@@ -22,33 +22,29 @@ namespace CommunicationApp
             this.Action = Action;
             this.simulationSelected = simulationSelected;
             this.lblParameter.Text = Action.Command;
+
+            dynamic parameters;
             switch (Action.Command)
             {
                 case "Order":
-                    foreach (OrderParameters orderParameters in Enum.GetValues(typeof(OrderParameters)))
-                    {
-                        this.comboBoxParameters.Items.Add(orderParameters.ToString());
-                    }
+                    parameters = Enum.GetValues(typeof(OrderParameters));
                     break;
                 case "Repair":
-                    foreach (RepairParameters repairParameters in Enum.GetValues(typeof(RepairParameters)))
-                    {
-                        this.comboBoxParameters.Items.Add(repairParameters.ToString());
-                    }
+                    parameters = Enum.GetValues(typeof(RepairParameters));
                     break;
                 case "Produce":
-                    foreach (ProduceParameters produceParameters in Enum.GetValues(typeof(ProduceParameters)))
-                    {
-                        this.comboBoxParameters.Items.Add(produceParameters.ToString());
-                    }
+                    parameters = Enum.GetValues(typeof(ProduceParameters));
                     break;
                 default://For Scan,MoveTo and Harvest
-                    foreach (Places place in Enum.GetValues(typeof(Places)))
-                    {
-                        this.comboBoxParameters.Items.Add(place.ToString());
-                    }
+                    parameters = Enum.GetValues(typeof(Places));
                     break;
             }
+            foreach(var choosenParams in parameters)
+            {
+                this.comboBoxParameters.Items.Add(choosenParams.ToString());
+            }
+
+
             this.comboBoxParameters.SelectedIndex = 0;
         }
 
@@ -61,6 +57,7 @@ namespace CommunicationApp
         {
             switch (Action.Command)
             {
+                //TODO: zooptymalizować
                 case "Order":
                     var orderForm = new orderValueForm();
                     orderForm.ShowDialog();
@@ -132,18 +129,6 @@ namespace CommunicationApp
                     break;
             }
 
-        }
-
-        private void comboBoxParameters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (this.comboBoxParameters.SelectedItem.ToString())
-            {
-                case "Supplies":
-                    break;
-                default:
-                    break;
-
-            }
         }
     }
 }
