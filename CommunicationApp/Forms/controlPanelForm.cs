@@ -68,54 +68,6 @@ namespace CommunicationApp
                 {
                     FileWriterReaderHelper.WriteLog(selectedLog.ToString(), simulationSelected);
                 }
-                /*  if (simulationSelected)
-                  {
-                      simulationLog.Response = JsonConvert.DeserializeObject<Response>(response.Content);
-                      richTextBoxActions.Text = "";
-                      foreach (var Action in simulationLog.Actions)
-                      {
-                          iterator++;
-                          richTextBoxActions.Text += iterator.ToString() + '.' + Action.ToString() + Environment.NewLine;
-                      }
-                      this.richTextBoxAllEvents.Text = simulationLog.Response.EventsToString(this.checkBoxShowImportantOnly.Checked);
-                      this.richTextBoxParameters.Text = simulationLog.Response.Parameters.ToString();
-                      this.richTextBoxScores.Text = simulationLog.Response.Scores.ToString();
-                      this.richTextBoxEquipments.Text = simulationLog.Response.EquipmentsToString();
-                      this.richTextBoxLastTurnEvents.Text = simulationLog.Response.LastTurnEventsToString(this.checkBoxShowImportantOnly.Checked);
-                      this.richTextBoxLogBook.Text = simulationLog.Response.LogBookToString();
-                      this.labelTurn.Text = "Turn: " + simulationLog.Response.Turn;
-                      this.labelLocation.Text = "Location: " + simulationLog.Response.Location;
-                      this.labelTerminated.Text = "Is terminated: " + simulationLog.Response.IsTerminated.ToString();
-
-                      if (simulationLog.Response.IsTerminated)
-                      {
-                          FileWriterReaderHelper.WriteLog(simulationLog.ToString(),simulationSelected);
-                      }
-                  }
-                  else
-                  {
-                      chaarrLog.Response = JsonConvert.DeserializeObject<Response>(response.Content);
-                      richTextBoxActions.Text = "";
-                      foreach (var Action in chaarrLog.Actions)
-                      {
-                          iterator++;
-                          richTextBoxActions.Text += iterator.ToString() + '.' + Action.ToString() + Environment.NewLine;
-                      }
-                      this.richTextBoxAllEvents.Text = chaarrLog.Response.EventsToString(this.checkBoxShowImportantOnly.Checked);
-                      this.richTextBoxParameters.Text = chaarrLog.Response.Parameters.ToString();
-                      this.richTextBoxScores.Text = chaarrLog.Response.Scores.ToString();
-                      this.richTextBoxEquipments.Text = chaarrLog.Response.EquipmentsToString();
-                      this.richTextBoxLastTurnEvents.Text = chaarrLog.Response.LastTurnEventsToString(this.checkBoxShowImportantOnly.Checked);
-                      this.richTextBoxLogBook.Text = chaarrLog.Response.LogBookToString();
-                      this.labelTurn.Text = "Turn: " + chaarrLog.Response.Turn;
-                      this.labelLocation.Text = "Location: " + chaarrLog.Response.Location;
-                      this.labelTerminated.Text = "Is terminated: " + chaarrLog.Response.IsTerminated.ToString();
-
-                      if (chaarrLog.Response.IsTerminated)
-                      {
-                          FileWriterReaderHelper.WriteLog(chaarrLog.ToString(), simulationSelected);
-                      }
-                  }*/
             }
             else
             {
