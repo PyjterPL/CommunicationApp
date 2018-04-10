@@ -236,7 +236,6 @@ namespace CommunicationApp
 
         private void controlPanelForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //TODO zapis do pliku
             MessageBox.Show("Goodbye!");
         }
 
@@ -300,6 +299,748 @@ namespace CommunicationApp
                 }
             }
 
+        }
+
+        private void buttonStartProcedure_Click(object sender, EventArgs e)
+        {
+            if (simulationSelected)
+            {
+                this.btnReset.PerformClick();
+                var payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                var client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                var request = ConnectionHelper.CreateRequest(payload);
+                IRestResponse response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Scan", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+                    
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+                        
+                    }
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+                    
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Supplies","500").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    this.simulationLog.Actions.Add(new Action("Produce", "Supplies", "500"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+                }
+                payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Supplies", "500").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    this.simulationLog.Actions.Add(new Action("Produce", "Supplies", "500"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+                }
+                payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                //zmiana w AL z 4 na 3 - ok; z 3 na 2 -ok
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 2; i++)
+               {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Chaarr").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Scan", "Chaarr"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                //zmiana w AL
+
+     //           this.btnStatus.PerformClick();
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Shuttlewrench").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Shuttlewrench"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                 payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                 client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                 request = ConnectionHelper.CreateRequest(payload);
+                 response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Scan", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+
+                payload = new Payload("Repair", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Repair", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Shuttle").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.simulationLog.Actions.Add(new Action("Scan", "Shuttle"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.simulationLog.Actions.Add(new Action("Produce", "Energy"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+
+                this.btnStatus.PerformClick();
+            }
+            else
+            {
+                this.btnReset.PerformClick();
+                var payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                var client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                var request = ConnectionHelper.CreateRequest(payload);
+                IRestResponse response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Scan", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Supplies", "500").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Supplies", "500"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+                }
+                payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Supplies", "500").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Supplies", "500"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+                }
+                payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                //zmiana w AL z 4 na 3 - ok; z 3 na 2 -ok
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Chaarr").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Scan", "Chaarr"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                //zmiana w AL
+
+                //           this.btnStatus.PerformClick();
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Shuttlewrench").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Shuttlewrench"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+                payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Scan", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+
+                payload = new Payload("Repair", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Repair", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Shuttle").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    this.chaarrLog.Actions.Add(new Action("Scan", "Shuttle"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong!");
+
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+                    client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                    request = ConnectionHelper.CreateRequest(payload);
+                    response = client.Execute(request);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        this.chaarrLog.Actions.Add(new Action("Produce", "Energy"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something gone wrong!");
+
+                    }
+                }
+
+                this.btnStatus.PerformClick();
+            }
         }
     }
 }

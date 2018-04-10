@@ -57,6 +57,7 @@
             this.labelLogBook = new System.Windows.Forms.Label();
             this.richTextBoxLogBook = new System.Windows.Forms.RichTextBox();
             this.checkBoxShowImportantOnly = new System.Windows.Forms.CheckBox();
+            this.buttonStartProcedure = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnScan
@@ -337,11 +338,22 @@
             this.checkBoxShowImportantOnly.UseVisualStyleBackColor = true;
             this.checkBoxShowImportantOnly.CheckedChanged += new System.EventHandler(this.checkBoxShowImportantOnly_CheckedChanged);
             // 
+            // buttonStartProcedure
+            // 
+            this.buttonStartProcedure.Location = new System.Drawing.Point(636, 275);
+            this.buttonStartProcedure.Name = "buttonStartProcedure";
+            this.buttonStartProcedure.Size = new System.Drawing.Size(75, 23);
+            this.buttonStartProcedure.TabIndex = 29;
+            this.buttonStartProcedure.Text = "Skip start";
+            this.buttonStartProcedure.UseVisualStyleBackColor = true;
+            this.buttonStartProcedure.Click += new System.EventHandler(this.buttonStartProcedure_Click);
+            // 
             // controlPanelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 678);
+            this.Controls.Add(this.buttonStartProcedure);
             this.Controls.Add(this.checkBoxShowImportantOnly);
             this.Controls.Add(this.richTextBoxLogBook);
             this.Controls.Add(this.labelLogBook);
@@ -414,6 +426,7 @@
         private System.Windows.Forms.Label labelLogBook;
         private System.Windows.Forms.RichTextBox richTextBoxLogBook;
         private System.Windows.Forms.CheckBox checkBoxShowImportantOnly;
+        private System.Windows.Forms.Button buttonStartProcedure;
     }
 }
 
