@@ -26,7 +26,7 @@ namespace CommunicationApp
             radioButtonSimulation.Select();
             simulationLog = new Log();
             chaarrLog = new Log();
-            var helloForm = new helloForm();
+            var helloForm = new helloGoodbyeForm();
             helloForm.ShowDialog();
         }
 
@@ -90,7 +90,8 @@ namespace CommunicationApp
 
         private void controlPanelForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessageBox.Show("Goodbye!");
+            var goodbyeForm = new helloGoodbyeForm(false);//closing
+            goodbyeForm.ShowDialog();
         }
 
         private void checkBoxShowImportantOnly_CheckedChanged(object sender, EventArgs e)
@@ -586,5 +587,6 @@ namespace CommunicationApp
                     break;
             }
         }
+
     }
 }

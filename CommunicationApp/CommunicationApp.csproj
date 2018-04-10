@@ -71,11 +71,11 @@
     <Compile Include="Forms\controlPanelForm.Designer.cs">
       <DependentUpon>controlPanelForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\helloForm.cs">
+    <Compile Include="Forms\helloGoodbyeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\helloForm.Designer.cs">
-      <DependentUpon>helloForm.cs</DependentUpon>
+    <Compile Include="Forms\helloGoodbyeForm.Designer.cs">
+      <DependentUpon>helloGoodbyeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\orderValueForm.cs">
       <SubType>Form</SubType>
@@ -110,8 +110,8 @@
     <EmbeddedResource Include="Forms\controlPanelForm.resx">
       <DependentUpon>controlPanelForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\helloForm.resx">
-      <DependentUpon>helloForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\helloGoodbyeForm.resx">
+      <DependentUpon>helloGoodbyeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\orderValueForm.resx">
       <DependentUpon>orderValueForm.cs</DependentUpon>
@@ -152,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GeneralKenobi.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goodbye.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
