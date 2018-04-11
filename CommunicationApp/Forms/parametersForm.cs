@@ -77,7 +77,7 @@ namespace CommunicationApp
                         }
                         else
                         {
-                            MessageBox.Show("Something gone wrong!");
+                            MessageBox.Show("Something gone wrong! "+ response.Content);
                             this.Close();
                         }
                     }
@@ -103,7 +103,7 @@ namespace CommunicationApp
                             }
                             else
                             {
-                                MessageBox.Show("Something gone wrong!");
+                                MessageBox.Show("Something gone wrong! " + response.Content);
                                 this.Close();
                             }
                         }
@@ -122,7 +122,7 @@ namespace CommunicationApp
                         }
                         else
                         {
-                            MessageBox.Show("Something gone wrong!");
+                            MessageBox.Show("Something gone wrong! " + response.Content);
                             this.Close();
                         }
                     }

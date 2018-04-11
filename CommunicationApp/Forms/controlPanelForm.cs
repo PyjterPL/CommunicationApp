@@ -84,7 +84,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
             }
         }
 
@@ -146,7 +146,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             for (int i = 0; i < 2; i++)
@@ -162,7 +162,7 @@ namespace CommunicationApp
                 }
                 else
                 {
-                    MessageBox.Show("Something gone wrong!");
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
                 }
             }
@@ -177,7 +177,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Supplies", "500").ToJson();
@@ -190,7 +190,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
             }
             payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
             client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
@@ -203,7 +203,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
@@ -217,7 +217,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             for (int i = 0; i < 3; i++)
@@ -233,7 +233,7 @@ namespace CommunicationApp
                 }
                 else
                 {
-                    MessageBox.Show("Something gone wrong!");
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
                 }
             }
@@ -248,7 +248,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Supplies", "500").ToJson();
@@ -261,7 +261,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
             }
             payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
             client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
@@ -274,7 +274,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
@@ -288,39 +288,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
-
-            }
-            //zmiana w AL z 4 na 3 - ok; z 3 na 2 -ok
-            for (int i = 0; i < 2; i++)
-            {
-                payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
-                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
-                request = ConnectionHelper.CreateRequest(payload);
-                response = client.Execute(request);
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-
-                    selectedLog.Actions.Add(new Action("Harvest", "Asteroids"));
-                }
-                else
-                {
-                    MessageBox.Show("Something gone wrong!");
-
-                }
-            }
-            payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
-            client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
-            request = ConnectionHelper.CreateRequest(payload);
-            response = client.Execute(request);
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-
-                selectedLog.Actions.Add(new Action("Produce", "Energy"));
-            }
-            else
-            {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             for (int i = 0; i < 2; i++)
@@ -336,13 +304,44 @@ namespace CommunicationApp
                 }
                 else
                 {
-                    MessageBox.Show("Something gone wrong!");
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
+
+                }
+            }
+            payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
+            client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+            request = ConnectionHelper.CreateRequest(payload);
+            response = client.Execute(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+
+                selectedLog.Actions.Add(new Action("Produce", "Energy"));
+            }
+            else
+            {
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
+
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                payload = new Payload("Harvest", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
+                client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
+                request = ConnectionHelper.CreateRequest(payload);
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    selectedLog.Actions.Add(new Action("Harvest", "Asteroids"));
+                }
+                else
+                {
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
                 }
             }
 
             for (int i = 0; i < 2; i++)
-            {
+            {//często wyskakuje tu bład
                 payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Chaarr").ToJson();
                 client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
                 request = ConnectionHelper.CreateRequest(payload);
@@ -354,7 +353,7 @@ namespace CommunicationApp
                 }
                 else
                 {
-                    MessageBox.Show("Something gone wrong!");
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
                 }
             }
@@ -370,7 +369,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             //zmiana w AL
@@ -387,7 +386,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             payload = new Payload("Produce", ConnectionHelper.Login, ConnectionHelper.Token, "Energy").ToJson();
@@ -401,7 +400,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             for (int i = 0; i < 3; i++)
@@ -417,7 +416,7 @@ namespace CommunicationApp
                 }
                 else
                 {
-                    MessageBox.Show("Something gone wrong!");
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
                 }
             }
@@ -434,7 +433,7 @@ namespace CommunicationApp
                 }
                 else
                 {
-                    MessageBox.Show("Something gone wrong!");
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
                 }
             }
@@ -449,7 +448,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
 
@@ -464,7 +463,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Shuttle").ToJson();
@@ -478,7 +477,7 @@ namespace CommunicationApp
             }
             else
             {
-                MessageBox.Show("Something gone wrong!");
+                MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
 
             }
             for (int i = 0; i < 2; i++)
@@ -494,7 +493,7 @@ namespace CommunicationApp
                 }
                 else
                 {
-                    MessageBox.Show("Something gone wrong!");
+                    MessageBox.Show("Something gone wrong! "+ Environment.NewLine +response.Content+ Environment.NewLine +"Try again");
                 }
             }
 
