@@ -67,6 +67,16 @@ namespace CommunicationApp
                 this.labelLocation.Text = "Location: " + selectedLog.Response.Location;
                 this.labelTerminated.Text = "Is terminated: " + selectedLog.Response.IsTerminated.ToString();
 
+                //Scrolling down the rich text boxes
+                richTextBoxAllEvents.SelectionStart = richTextBoxAllEvents.Text.Length;
+                richTextBoxAllEvents.ScrollToCaret();
+
+                richTextBoxActions.SelectionStart = richTextBoxActions.Text.Length;
+                richTextBoxActions.ScrollToCaret();
+
+                richTextBoxLogBook.SelectionStart = richTextBoxLogBook.Text.Length;
+                richTextBoxLogBook.ScrollToCaret();
+
                 if (selectedLog.Response.IsTerminated)
                 {
                     FileWriterReaderHelper.WriteLog(selectedLog.ToString(), simulationSelected);
@@ -122,7 +132,8 @@ namespace CommunicationApp
             {
                 selectedLog = chaarrLog;
             }
-            //reset
+            Cursor.Current = Cursors.WaitCursor;
+
             buttonsActionPerformed(this.btnReset, e);
             var payload = new Payload("Scan", ConnectionHelper.Login, ConnectionHelper.Token, "Asteroids").ToJson();
             var client = new RestClient(ConnectionHelper.ExecuteAdress(simulationSelected));
@@ -488,6 +499,7 @@ namespace CommunicationApp
             }
 
             btnStatus.PerformClick();
+            Cursor.Current = Cursors.Arrow;
 
         }
 
