@@ -19,7 +19,7 @@ namespace CommunicationApp.Forms
             if (hello)
             {
                 this.pictureBoxMessage.Image = Resources.GeneralKenobi;
-                this.btnHello.Text = "Hello there!";
+                this.btnHello.Text = "General Kenobi!";
             }
             else
             {
